@@ -1,3 +1,10 @@
+/*
+ * @Description: 主题相关store
+ * @Author: enjoyjavapan
+ * @Date: 2020-10-12 20:31:13
+ * @LastEditors: enjoyjavapan
+ * @LastEditTime: 2020-10-12 20:52:13
+ */
 import {get} from 'lodash'
 import setting from '@/setting.js'
 
@@ -44,7 +51,6 @@ export default {
          * @description 从持久化数据加载主题设置     * @param {Object} context
          */
         async load({state, commit, dispatch}) {
-            debugger
             // store 赋值
             const activeName = await dispatch(
                 'd2admin/db/get',
