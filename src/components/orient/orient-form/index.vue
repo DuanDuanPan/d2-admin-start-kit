@@ -3,80 +3,69 @@
  * @Author: enjoyjavapan
  * @Date: 2020-10-20 22:56:08
  * @LastEditors: enjoyjavapan
- * @LastEditTime: 2020-10-20 23:07:55
+ * @LastEditTime: 2020-10-20 23:12:44
 -->
 <template>
-    <el-form ref="form" :model="form" label-width="80px">
-        <el-form-item label="活动名称">
-            <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="活动区域">
-            <el-select v-model="form.region" placeholder="请选择活动区域">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
+    <el-form ref="form" label-width="80px">
+        <!-- 遍历 formComponentList，生成表单组件列表 -->
+        <!-- 通过 formLabel 配置左侧 label 标签名称 -->
+        <el-form-item :label="item.formLabel" v-for="(item, index) in formComponentList" :key="index">
+            <!-- 通过 v-if 判断，插入对应的表单组件 -->
+            <!-- 每个表单组件都有 v-model 来绑定 value 值 -->
+            <el-input
+                v-if="item.componentName === 'el-input'"
+                v-model="item.value"
+                :type="item.type"
+                :placeholder="item.placeholder"
+            ></el-input>
+            <el-select v-if="item.componentName === 'el-select'" v-model="item.value" :placeholder="item.placeholder">
+                <!-- select、checkbox-group、radio-group 等选项组件可通过 options 来配置相应的选项 -->
+                <el-option
+                    v-for="option in item.options"
+                    :label="option.label"
+                    :value="option.value"
+                    :key="option.value"
+                ></el-option>
             </el-select>
-        </el-form-item>
-        <el-form-item label="活动时间">
-            <el-col :span="11">
-                <el-date-picker
-                    type="date"
-                    placeholder="选择日期"
-                    v-model="form.date1"
-                    style="width: 100%;"
-                ></el-date-picker>
-            </el-col>
-            <el-col class="line" :span="2">-</el-col>
-            <el-col :span="11">
-                <el-time-picker placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
-            </el-col>
-        </el-form-item>
-        <el-form-item label="即时配送">
-            <el-switch v-model="form.delivery"></el-switch>
-        </el-form-item>
-        <el-form-item label="活动性质">
-            <el-checkbox-group v-model="form.type">
-                <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
-                <el-checkbox label="地推活动" name="type"></el-checkbox>
-                <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-                <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
+            <!-- 日期和时间组件，可通过 valueFormat 配置值的格式 -->
+            <el-date-picker
+                v-if="item.componentName === 'el-date-picker'"
+                :type="item.type || 'date'"
+                :value-format="item.valueFormat"
+                :placeholder="item.placeholder"
+                v-model="item.value"
+            ></el-date-picker>
+            <el-time-picker
+                v-if="item.componentName === 'el-time-picker'"
+                :value-format="item.valueFormat"
+                :placeholder="item.placeholder"
+                v-model="item.value"
+            ></el-time-picker>
+            <el-switch v-if="item.componentName === 'el-switch'" v-model="item.value"></el-switch>
+            <el-checkbox-group v-if="item.componentName === 'el-checkbox-group'" v-model="item.value">
+                <el-checkbox v-for="option in item.options" :label="option.label" :key="option.label">{{
+                    option.text || option.label
+                }}</el-checkbox>
             </el-checkbox-group>
-        </el-form-item>
-        <el-form-item label="特殊资源">
-            <el-radio-group v-model="form.resource">
-                <el-radio label="线上品牌商赞助"></el-radio>
-                <el-radio label="线下场地免费"></el-radio>
+            <el-radio-group v-if="item.componentName === 'el-radio-group'" v-model="item.value">
+                <el-radio v-for="option in item.options" :label="option.label" :key="option.label">{{
+                    option.text || option.label
+                }}</el-radio>
             </el-radio-group>
         </el-form-item>
-        <el-form-item label="活动形式">
-            <el-input type="textarea" v-model="form.desc"></el-input>
-        </el-form-item>
-        <el-form-item>
-            <el-button type="primary" @click="onSubmit">立即创建</el-button>
-            <el-button>取消</el-button>
-        </el-form-item>
+        <!-- slot 留个性化的内容 -->
+        <slot></slot>
     </el-form>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            form: {
-                name: '',
-                region: '',
-                date1: '',
-                date2: '',
-                delivery: '',
-                type: [],
-                resource: '',
-                desc: ''
-            }
-        }
-    },
-    methods: {
-        onSubmit() {
-            this.$log.success('submit form')
-            console.log(this.form)
+    // 传入选项
+    props: {
+        // 表单组件信息
+        formComponentList: {
+            type: Array,
+            default: () => []
         }
     }
 }
