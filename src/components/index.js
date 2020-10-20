@@ -1,3 +1,10 @@
+/*
+ * @Description: file information
+ * @Author: enjoyjavapan
+ * @Date: 2020-10-12 20:31:13
+ * @LastEditors: enjoyjavapan
+ * @LastEditTime: 2020-10-20 22:56:58
+ */
 import Vue from 'vue'
 
 import d2Container from './d2-container'
@@ -6,3 +13,4 @@ import d2Container from './d2-container'
 Vue.component('d2-container', d2Container)
 Vue.component('d2-icon', () => import('./d2-icon'))
 Vue.component('d2-icon-svg', () => import('./d2-icon-svg/index.vue'))
+Vue.component('orient-form', () => import('./orient/orient-form/index.vue'))
