@@ -3,7 +3,7 @@
  * @Author: enjoyjavapan
  * @Date: 2020-10-12 20:31:13
  * @LastEditors: enjoyjavapan
- * @LastEditTime: 2020-10-20 22:56:58
+ * @LastEditTime: 2020-10-22 21:38:55
  */
 import Vue from 'vue'
 
@@ -14,3 +14,4 @@ Vue.component('d2-container', d2Container)
 Vue.component('d2-icon', () => import('./d2-icon'))
 Vue.component('d2-icon-svg', () => import('./d2-icon-svg/index.vue'))
 Vue.component('orient-form', () => import('./orient/orient-form/index.vue'))
+Vue.component('form-editor', () => import('./orient/orient-form/form-editor.vue'))
