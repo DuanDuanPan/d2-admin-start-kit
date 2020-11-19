@@ -3,7 +3,7 @@
  * @Author: enjoyjavapan
  * @Date: 2020-10-22 21:27:02
  * @LastEditors: enjoyjavapan
- * @LastEditTime: 2020-10-22 21:37:18
+ * @LastEditTime: 2020-11-17 14:20:30
 -->
 <template>
     <div style="height:600px">
@@ -22,7 +22,7 @@ export default {
     },
     model: {
         event: 'change',
-        innerValue: 'value'
+        prop: 'value'
     },
     props: {
         options: {
@@ -79,4 +79,4 @@ export default {
 
 <style scoped>
 @import '~jsoneditor/dist/jsoneditor.min.css';
-</style>>
+</style>

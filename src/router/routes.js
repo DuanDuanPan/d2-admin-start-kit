@@ -2,7 +2,7 @@
  * @Date: 2020-10-12 14:19:11
  * @Author: enjoyjavapan
  * @LastEditors: enjoyjavapan
- * @LastEditTime: 2020-10-12 16:49:05
+ * @LastEditTime: 2020-11-18 17:17:23
  * @Description: 描述文件作用
  * @FilePath: \d2-admin-start-kit\src\router\routes.js
  */
@@ -37,6 +37,15 @@ const frameIn = [
                     auth: true
                 },
                 component: _import('sysmgr/usermgr')
+            },
+            {
+                path: '/sysmgr-rolemgr',
+                name: 'sysmgr-rolemgr',
+                meta: {
+                    title: '角色管理',
+                    auth: true
+                },
+                component: _import('sysmgr/rolemgr')
             },
             // 系统 前端日志
             {

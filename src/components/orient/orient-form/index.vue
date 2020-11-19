@@ -3,7 +3,7 @@
  * @Author: enjoyjavapan
  * @Date: 2020-10-20 22:56:08
  * @LastEditors: enjoyjavapan
- * @LastEditTime: 2020-10-22 22:04:24
+ * @LastEditTime: 2020-11-18 14:23:16
 -->
 <template>
     <el-form ref="form" label-width="80px" :model="formModel">
@@ -108,6 +108,8 @@ export default {
         updateValue() {
             // 更新外部值，需要变更应用才会生效
             this.$emit('change', {...this.formModel})
+            this.$children[0].$children[0].$data.validateState = 'error'
+            this.$children[0].$children[0].$data.validateMessage = '外部错误'
         },
         updateFormModel(value) {
             const formModelInit = {}
@@ -125,5 +127,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

@@ -30,6 +30,7 @@
     "sortablejs": "^1.10.1",
     "ua-parser-js": "^0.7.20",
     "vue": "^2.6.11",
+    "vue-easy-form": "^1.7.9",
     "vue-i18n": "^8.15.1",
     "vue-router": "^3.1.3",
     "vuex": "^3.1.2"

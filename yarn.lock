@@ -10546,6 +10546,13 @@ vue-cli-plugin-i18n@^1.0.1:
     vue-i18n "^8.17.0"
     vue-i18n-extract "1.0.2"
 
+vue-easy-form@^1.7.9:
+  version "1.7.9"
+  resolved "https://registry.npm.taobao.org/vue-easy-form/download/vue-easy-form-1.7.9.tgz#43b2a7be77ee8618b7d0a212b4f6c02ec02173e7"
+  integrity sha1-Q7Knvnfuhhi30KIStPbALsAhc+c=
+  dependencies:
+    vue "^2.6.11"
+
 vue-eslint-parser@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-7.0.0.tgz#a4ed2669f87179dedd06afdd8736acbb3a3864d6"

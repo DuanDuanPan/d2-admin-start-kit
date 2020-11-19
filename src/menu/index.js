@@ -2,7 +2,7 @@
  * @Date: 2020-10-12 14:19:11
  * @Author: enjoyjavapan
  * @LastEditors: enjoyjavapan
- * @LastEditTime: 2020-10-12 16:48:46
+ * @LastEditTime: 2020-11-18 17:19:49
  * @Description: 描述文件作用
  * @FilePath: \d2-admin-start-kit\src\menu\index.js
  */
@@ -30,7 +30,10 @@ export const menuHeader = supplementPath([
     {
         title: '系统管理',
         icon: 'folder-o',
-        children: [{path: '/sysmgr-usermgr', title: '用户管理'}]
+        children: [
+            {path: '/sysmgr-usermgr', title: '用户管理'},
+            {path: '/sysmgr-rolemgr', title: '角色管理'}
+        ]
     }
 ])
 
@@ -39,6 +42,9 @@ export const menuAside = supplementPath([
     {
         title: '系统管理',
         icon: 'folder-o',
-        children: [{path: '/sysmgr-usermgr', title: '用户管理'}]
+        children: [
+            {path: '/sysmgr-usermgr', title: '用户管理'},
+            {path: '/sysmgr-rolemgr', title: '角色管理'}
+        ]
     }
 ])
